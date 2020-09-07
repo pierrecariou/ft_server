@@ -22,6 +22,7 @@ RUN tar zxvf latest.tar.gz
 RUN mv wordpress/* /var/www/html/
 RUN rm -rf wordpress
 ADD srcs/wp-config.php /var/www/html/
+ENV autoindex on
 
 
 #build phpmyadmin
@@ -47,4 +48,4 @@ ADD srcs/script.sh /usr/bin/script.sh
 CMD ["bash", "script.sh"]
 
 #sudo docker build -t imgbuster .
-#sudo docker run --rm -ti -p 80:80 imgbuster
+#sudo docker run --rm -ti -p 80:80 -p 443:443 imgbuster
